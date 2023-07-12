@@ -9,7 +9,7 @@ defaults:
        working-directory: ./hello_world
 jobs:
   Build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v2
@@ -25,7 +25,6 @@ jobs:
       - run: flutter pub get
       - run: flutter test
       - run: flutter build appbundle
-      - run: flutter build ios --release --no-codesign
       - run: |
           echo CACHE-PATH=${{ steps.flutter-action.outputs.CACHE-PATH }}
           echo CACHE-KEY=${{ steps.flutter-action.outputs.CACHE-KEY }}
