@@ -27,6 +27,6 @@ subprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-android {                                                                                        │
-   compileSdkVersion 31                                                                           │
+android {
+   compileSdkVersion 31
  } 
