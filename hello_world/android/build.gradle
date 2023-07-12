@@ -28,5 +28,5 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 android {                                                                                        │
-│   compileSdkVersion 31                                                                           │
-│ } 
+   compileSdkVersion 31                                                                           │
+ } 
