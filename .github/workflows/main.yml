@@ -22,6 +22,7 @@ jobs:
           architecture: x64
       - run: ls
       - run: cd hello_world
+      - run: ls
       - run: flutter pub get
       - run: flutter test
       - run: flutter build web
