@@ -20,14 +20,12 @@ jobs:
           flutter-version: '3.7.7'
           channel: 'stable'
           architecture: x64
-      - run: ls
-      - run: cd hello_world
-             ls
-      - run: flutter pub get
-      - run: flutter test
-      - run: flutter build web
-      - name: Firebase - Deploy
-        run: |
+      - run: |
+          ls
+          cd hello_world 
+          flutter pub get
+          flutter test
+          flutter build web
           cd example
           firebase deploy --only --token "1//03K3eO7v7-fAnCgYIARAAGAMSNwF-L9IrYFixhx7UGwjiTmZjmd4_XcfMe9-DARDiiBre2szIBi3Xjr4GdbkNbHp1zfe2o1_3Ehs"
         
