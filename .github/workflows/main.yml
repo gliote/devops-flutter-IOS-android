@@ -26,7 +26,7 @@ jobs:
           flutter pub get
           flutter test
           flutter build appbundle
-          firebase appdistribution:distribute ./app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16" --token "1//03K3eO7v7-fAnCgYIARAAGAMSNwF-L9IrYFixhx7UGwjiTmZjmd4_XcfMe9-DARDiiBre2szIBi3Xjr4GdbkNbHp1zfe2o1_3Ehs"
+          firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16" --token "1//03K3eO7v7-fAnCgYIARAAGAMSNwF-L9IrYFixhx7UGwjiTmZjmd4_XcfMe9-DARDiiBre2szIBi3Xjr4GdbkNbHp1zfe2o1_3Ehs"
 
 
         
