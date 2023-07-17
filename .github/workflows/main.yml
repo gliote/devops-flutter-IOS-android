@@ -24,7 +24,7 @@ jobs:
           cd hello_world 
           flutter pub get
           flutter test
-          flutter build ios --release --no-codesign
+          flutter build ipa --release --no-codesign
           cd build
           cd ios
           cd Release-iphoneos
