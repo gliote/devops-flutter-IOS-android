@@ -21,7 +21,6 @@ jobs:
           channel: 'stable'
           architecture: x64
       - run: |
-          ls
           cd hello_world 
           flutter pub get
           flutter test
