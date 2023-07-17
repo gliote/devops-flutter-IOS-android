@@ -26,5 +26,9 @@ jobs:
           flutter pub get
           flutter test
           flutter build web
-          firebase deploy --only hosting --token "1//03K3eO7v7-fAnCgYIARAAGAMSNwF-L9IrYFixhx7UGwjiTmZjmd4_XcfMe9-DARDiiBre2szIBi3Xjr4GdbkNbHp1zfe2o1_3Ehs"
+          flutter build appbundle
+          cd build
+          ls
+
+
         
