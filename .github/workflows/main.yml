@@ -3,12 +3,23 @@ on:
  push: 
   branches:
     - main
+
+permissions:
+  issues: write
+  contents: write
+  packages: write
+  repository-projects: write
+
 jobs:
   Build:
     runs-on: macos-latest
     steps:
       - run: npm install -g firebase-tools
       - uses: actions/checkout@v3
+      - name: Install nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
       - uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
@@ -23,14 +34,24 @@ jobs:
       - run: |
           cd hello_world 
           flutter pub get
-          flutter test
-          flutter build ipa --release --no-codesign
-          cd build
-          cd ios
-          ls
-          firebase appdistribution:distribute build/ios/ipa/app-release.ipa --debug --app 1:935264185763:ios:9e95a68fd95448bda7be16 --token "1//03K3eO7v7-fAnCgYIARAAGAMSNwF-L9IrYFixhx7UGwjiTmZjmd4_XcfMe9-DARDiiBre2szIBi3Xjr4GdbkNbHp1zfe2o1_3Ehs"
-  #flutter build appbundle
-  #firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16" --token "1//03K3eO7v7-fAnCgYIARAAGAMSNwF-L9IrYFixhx7UGwjiTmZjmd4_XcfMe9-DARDiiBre2szIBi3Xjr4GdbkNbHp1zfe2o1_3Ehs"
+          flutter build appbundle
+          firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16" --token "1//03K3eO7v7-fAnCgYIARAAGAMSNwF-L9IrYFixhx7UGwjiTmZjmd4_XcfMe9-DARDiiBre2szIBi3Xjr4GdbkNbHp1zfe2o1_3Ehs"
+      - name: Install semantic
+        run: |
+          npm i semantic-release @semantic-release/exec @semantic-release/changelog @semantic-release/commit-analyzer @semantic-release/github @semantic-release/git @semantic-release/release-notes-generator semantic-release-slack-bot @commitlint/cli @commitlint/config-conventional
+      - name: Run semantic
+        id: release
+        run: |
+          npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Do something when a new release published
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: |
+         echo ${{ steps.semantic.outputs.new_release_version }}
+         echo ${{ steps.semantic.outputs.new_release_major_version }}
+         echo ${{ steps.semantic.outputs.new_release_minor_version }}
+         echo ${{ steps.semantic.outputs.new_release_patch_version }}
 
 
         
