@@ -38,6 +38,7 @@ jobs:
       #     credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}'
       - run: |
           cd hello_world 
+           echo "GOOGLE_APPLICATION_CREDENTIALS=${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
           flutter pub get
           flutter build appbundle
           firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16"
