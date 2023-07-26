@@ -55,7 +55,7 @@ jobs:
         #  firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16"
       - name: Install semantic
         run: |
-          npm i semantic-release @semantic-release/exec @semantic-release/changelog @semantic-release/commit-analyzer @semantic-release/github @semantic-release/git @semantic-release/release-notes-generator semantic-release-slack-bot @commitlint/cli @commitlint/config-conventional
+          npm i semantic-release
       - name: Run semantic
         id: semantic
         run: |
