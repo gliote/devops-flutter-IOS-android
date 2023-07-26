@@ -35,7 +35,7 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-          credentials_json: 'test-flutter-app-ea100-firebase-adminsdk-5h11g-18c29e7ad9.json'
+          credentials_json: '/Users/geoffreyliotte/repo/devops-flutter-IOS-android/test-flutter-app-ea100-firebase-adminsdk-5h11g-18c29e7ad9.json'
       - run: |
           cd hello_world 
            echo "GOOGLE_APPLICATION_CREDENTIALS=${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
