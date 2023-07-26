@@ -35,6 +35,7 @@ jobs:
           cd hello_world 
           flutter pub get
           flutter build appbundle
+          echo "GOOGLE_APPLICATION_CREDENTIALS=${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
           firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16"
       # - name: Install semantic
       #   run: |
