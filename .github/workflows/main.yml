@@ -1,5 +1,5 @@
 name: pipeline
-input: 
+inputs: 
   GOOGLE_CREDENTIAL_PATH:
     description: 'The path to the google credential file to use.'
     required: false
