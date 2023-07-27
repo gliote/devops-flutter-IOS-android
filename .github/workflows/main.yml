@@ -53,7 +53,7 @@ jobs:
           flutter pub get
           flutter build appbundle
         #  firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16"
-      - name: Generate token
+      - name: Generate the token
         id: generate_token
         uses: getsentry/action-github-app-token@v2
         with:
