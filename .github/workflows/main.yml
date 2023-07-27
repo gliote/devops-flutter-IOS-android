@@ -52,7 +52,7 @@ jobs:
         id: generate_token
         uses: getsentry/action-github-app-token@v2
         with:
-          app_id: "367437"
+          app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.UNIVERSAL_GH_APP_PRIVATE_KEY_CODE }}
   
       - name: Install semantic
