@@ -8,7 +8,7 @@ on:
         description: 'The path to the google credential file to use.'
         type: string
         required: false
-        default: $RUNNER_TEMP/google_credential.json
+        default: '$RUNNER_TEMP/google_credential.json'
 
 permissions:
   issues: write
