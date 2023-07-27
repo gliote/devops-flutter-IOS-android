@@ -39,7 +39,7 @@ jobs:
           architecture: x64
 
       - shell: bash
-        if: ${{ secrets.GOOGLE_CREDENTIALS != null }}
+        if: '${{ secrets.GOOGLE_CREDENTIALS != null }}'
         run: echo -n ${{ secrets.GOOGLE_CREDENTIALS }} | base64 --decode -o ${{ inputs.GOOGLE_CREDENTIAL_PATH }}
 
       - id: 'auth'
