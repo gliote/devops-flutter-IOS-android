@@ -1,14 +1,14 @@
 name: pipeline
 on:
-workflow_call:
-  inputs: 
-    GOOGLE_CREDENTIAL_PATH:
-      description: 'The path to the google credential file to use.'
-      required: false
-      default: $RUNNER_TEMP/google_credential.json
-push: 
-  branches:
-    - main
+  workflow_call:
+    inputs: 
+      GOOGLE_CREDENTIAL_PATH:
+        description: 'The path to the google credential file to use.'
+        required: false
+        default: $RUNNER_TEMP/google_credential.json
+  push: 
+    branches:
+      - main
 
 permissions:
   issues: write
