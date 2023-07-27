@@ -58,7 +58,8 @@ jobs:
         uses: getsentry/action-github-app-token@v2
         with:
           app_id: "367437"
-          private_key: "MIIEowIBAAKCAQEAxAM2stSgCpL5Swr6+4BGa3/3ZenF7nZKBnezq9eSNBItb4MX
+          private_key: "-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAxAM2stSgCpL5Swr6+4BGa3/3ZenF7nZKBnezq9eSNBItb4MX
 xRLxP5gcSNi+yhkZ5NR+OoSyxWkZr3FQFG2a7x9+kOrPVDNp1kJA1rqhZAo0/cSA
 DtEUI1iNnHRdBp9OdZnfcdn0Q8r/44nO7Ju0wks1PQLvKSd2CLKwnGlxGgaQLZmh
 BL6/LsJZbRizVokX95nCT3seE9RYvR8ipXGIJkne65dMvIjtCKXbcrQy2FonvV4n
@@ -82,7 +83,9 @@ iEpCB4DwblKHuSpYj7IuTPdsNNlQa030nJmulrLWYnDqj6nlAlypsflyKM7Dzbu+
 LUkmTia1AyT70PIyDYWWPZw8BEkflak/m61QwtEzp/b5DQwbgUXY01i1TGGje4+V
 XB6sAQKBgFtVQ3WdMJ7jsyHknf83iQtLxW6CM9ptRWKqdn+R1MyxGwcHBegw8ptu
 KELZKAlv+LGyLsIr2IAjt9QfuQTbZc74FiZd0nljiR8DtnhCUFpS3F1u0OK07h4k
-UZGwxBfvSYVJqlRyhBrg6Vxzpyswz0Z4nmO3Szf4Ys8xnQmpapyy"
+UZGwxBfvSYVJqlRyhBrg6Vxzpyswz0Z4nmO3Szf4Ys8xnQmpapyy
+-----END RSA PRIVATE KEY-----
+"
   
       - name: Install semantic
         run: |
