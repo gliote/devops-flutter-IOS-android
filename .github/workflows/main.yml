@@ -1,10 +1,11 @@
 name: pipeline
-inputs: 
-  GOOGLE_CREDENTIAL_PATH:
-    description: 'The path to the google credential file to use.'
-    required: false
-    default: $RUNNER_TEMP/google_credential.json
 on:
+workflow_call:
+  inputs: 
+    GOOGLE_CREDENTIAL_PATH:
+      description: 'The path to the google credential file to use.'
+      required: false
+      default: $RUNNER_TEMP/google_credential.json
  push: 
   branches:
     - main
@@ -20,7 +21,7 @@ jobs:
   Build:
     runs-on: macos-latest
     steps:
-     # - run: npm install -g firebase-tools
+      - run: npm install -g firebase-tools
       - uses: actions/checkout@v3
       - name: Install nodejs
         uses: actions/setup-node@v3
