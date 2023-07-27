@@ -14,7 +14,7 @@ jobs:
   Build:
     runs-on: macos-latest
     steps:
-      - run: npm install -g firebase-tools
+     # - run: npm install -g firebase-tools
       - uses: actions/checkout@v3
       - name: Install nodejs
         uses: actions/setup-node@v3
@@ -48,44 +48,12 @@ jobs:
 #   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-5h11g%40test-flutter-app-ea100.iam.gserviceaccount.com",
 #   "universe_domain": "googleapis.com"
 # }'
-      - run: |
-          cd hello_world 
-          flutter pub get
-          flutter build appbundle
-        #  firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16"
       - name: Generate the token
         id: generate_token
         uses: getsentry/action-github-app-token@v2
         with:
           app_id: "367437"
-          private_key: "-----BEGIN RSA PRIVATE KEY-----
-MIIEowIBAAKCAQEAxAM2stSgCpL5Swr6+4BGa3/3ZenF7nZKBnezq9eSNBItb4MX
-xRLxP5gcSNi+yhkZ5NR+OoSyxWkZr3FQFG2a7x9+kOrPVDNp1kJA1rqhZAo0/cSA
-DtEUI1iNnHRdBp9OdZnfcdn0Q8r/44nO7Ju0wks1PQLvKSd2CLKwnGlxGgaQLZmh
-BL6/LsJZbRizVokX95nCT3seE9RYvR8ipXGIJkne65dMvIjtCKXbcrQy2FonvV4n
-uI3zPqs42EA0gzWeppVmvETldVOw/h5YOk3bfvfIXmyf9YThrUg2KVGkL3syYUBC
-H/IUzgeUOllX1QzOrnx8+ing2nfsyv4piqc4KQIDAQABAoIBABGXoD8oqjyIuGst
-zxznhGp9j7zL4IHoh/hQogWYUXzu7LkHcQi1DIYCpvc6zNTir9pD4BhsdIcXScDf
-UKqks7UmhHuJN5Z9DtC2HY+oLHgIGn10N3Ic/cu2VO9n2jmP7sDLUKytPSkgfRr0
-8Wd3CiAuE9cn/kMZUZSyRPuk0wvcxmDgMui1lh2JfSs8RdG2M3n8TDg69RuGyMWu
-DVUBGn+gHPRNwYtBtjMhFW8uvMleaABfm+yyhaktJK4wLiOzK+e9aBOaDrmm6B+q
-laZ78Gj0OZhTVlmdI0bKGQpWKg6UrNvzsyXlHiJ45jR2cbOp7GHavOLi1pz57Oa1
-zXUEUAECgYEA/4JE99oUuYq0ih+zSxPNreFXAo797Eqh0jyEUQn3YEqe/fvASjxo
-d5mnDDUGMDC6Mp9ojAy+xCmTXL5/oxcZENDVaafDV9dnE4jNmD1sfzRpJRHHPYiI
-5jA6D4LjHIeAWU80EzCbQK+se0SkO2tV52S6KatwiuuzvVlBQoAzqykCgYEAxGOq
-2E4+fDwNWATTIBnR6EtePxN6nKgJsC1EQHT79jXoIh2YQb0A+NXTspdqdvFM21FV
-QgBPj14W0ksoDPHXzjVxTsWM2taxm7FCPj5xd+7IrFQBGcniQ+nNT0gFtdhCE0bF
-zYyIAgJejMH5bzAxop5+DLru4+lYmk7joV51xQECgYEA21wy6/s9+cFcmIz4uAcr
-eRHSSq8Kz3ePkFhGXPDKgc/uyiz9/H36TlwLL47CXlMnOFjlP/+dM/phuqkOGa21
-5lr0Lf5K1jpnEz1LDV4GrPsJHjsyK+Dxb3aOEk0TwKWQipxWH/eGArYPxdC7kwvm
-t38h2K6IM6yCJpjfT0GTmmkCgYA3B6aLzgD8Vud2ToPKbvG+ob/a9N5an0t3rnd9
-iEpCB4DwblKHuSpYj7IuTPdsNNlQa030nJmulrLWYnDqj6nlAlypsflyKM7Dzbu+
-LUkmTia1AyT70PIyDYWWPZw8BEkflak/m61QwtEzp/b5DQwbgUXY01i1TGGje4+V
-XB6sAQKBgFtVQ3WdMJ7jsyHknf83iQtLxW6CM9ptRWKqdn+R1MyxGwcHBegw8ptu
-KELZKAlv+LGyLsIr2IAjt9QfuQTbZc74FiZd0nljiR8DtnhCUFpS3F1u0OK07h4k
-UZGwxBfvSYVJqlRyhBrg6Vxzpyswz0Z4nmO3Szf4Ys8xnQmpapyy
------END RSA PRIVATE KEY-----
-"
+          private_key: ${{ secrets.UNIVERSAL_GH_APP_PRIVATE_KEY_CODE }}
   
       - name: Install semantic
         run: |
@@ -103,6 +71,12 @@ UZGwxBfvSYVJqlRyhBrg6Vxzpyswz0Z4nmO3Szf4Ys8xnQmpapyy
           echo ${{ steps.semantic.outputs.new_release_major_version }}
           echo ${{ steps.semantic.outputs.new_release_minor_version }}
           echo ${{ steps.semantic.outputs.new_release_patch_version }}
+      - run: |
+          cd hello_world 
+          flutter pub get
+          flutter build appbundle
+        #  firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab --debug --app "1:935264185763:android:c9373e09110f60cca7be16"
+
 
 
         
