@@ -22,7 +22,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - shell: bash
-        run: echo ${{ inputs.GOOGLE_CREDENTIAL_PATH }}
+        run: echo '${{ inputs.GOOGLE_CREDENTIAL_PATH }}'
       - run: npm install -g firebase-tools
       - uses: actions/checkout@v3
       - name: Install nodejs
