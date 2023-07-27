@@ -3,7 +3,7 @@ on:
   push: 
     branches:
       - main
-   inputs: 
+    inputs: 
       GOOGLE_CREDENTIAL_PATH:
         description: 'The path to the google credential file to use.'
         type: string
