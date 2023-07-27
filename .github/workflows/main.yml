@@ -44,13 +44,13 @@ jobs:
       - shell: bash
         run: echo -n ${{ secrets.GOOGLE_CREDENTIALS }} | base64 --decode -o $RUNNER_TEMP/google_credential.json
       - shell: bash
-        run: echo $RUNNER_TEMP/google_credential.json
+        run: echo "$RUNNER_TEMP/google_credential.json"
 
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-          credentials_json: $RUNNER_TEMP/google_credential.json
+          credentials_json: "$RUNNER_TEMP/google_credential.json"
       # - name: Generate the token
       #   id: generate_token
       #   uses: getsentry/action-github-app-token@v2
