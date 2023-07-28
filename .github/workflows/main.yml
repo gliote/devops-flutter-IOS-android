@@ -51,7 +51,7 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-          credentials_json: "$RUNNER_TEMP/google_credential.json"
+          credentials_json: cat "$RUNNER_TEMP/google_credential.json"
       # - name: Generate the token
       #   id: generate_token
       #   uses: getsentry/action-github-app-token@v2
