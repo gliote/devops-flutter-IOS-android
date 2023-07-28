@@ -45,7 +45,8 @@ jobs:
         run: echo -n ${{ secrets.GOOGLE_CREDENTIALS }} | base64 --decode -o $RUNNER_TEMP/google_credential.json
       - shell: bash
         run: echo "$RUNNER_TEMP/google_credential.json"
-
+  - shell: bash
+        run: cat "$RUNNER_TEMP/google_credential.json"
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
