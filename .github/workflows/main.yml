@@ -46,12 +46,13 @@ jobs:
       - shell: bash
         run: echo "$RUNNER_TEMP/google_credential.json"
       - shell: bash
-        run: cat "$RUNNER_TEMP/google_credential.json"
+        id: vars
+        run: echo ::set-output name=credential::$(cat "$RUNNER_TEMP/google_credential.json")
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-          credentials_json: cat "$RUNNER_TEMP/google_credential.json"
+          credentials_json: ${{ steps.vars.outputs.credential }}
       # - name: Generate the token
       #   id: generate_token
       #   uses: getsentry/action-github-app-token@v2
